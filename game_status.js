@@ -1,6 +1,8 @@
 /* Classe com o status do game */
+import { range } from './funcoes.js';
+// import { leitura } from './leitura.cjs';
 
-class GameStatus {
+export class GameStatus {
     constructor() {
       this.num_rodada = 0;
       this.players_positions = {};
@@ -96,8 +98,11 @@ class GameStatus {
         return 'Volume inválido'
       }
     };
-  /*
+  
     carrega_anomalias() {
+
+        // var jsonData = JSON.parse(theTextContentOfMyFile);
+/*
       cwd = os.getcwd();
       console.log("Diretório atual: " + cwd);
   
@@ -105,6 +110,8 @@ class GameStatus {
       cwd = cwd.replace('/classes', '');
       cwd = cwd.replace('/paeplay_python', '');
       f = open(cwd + '/paeplay_python/paeplay_python/data/planilha.json');
+
+      var jsonData = JSON.parse(theTextContentOfMyFile);
   
       try {
         f = open(cwd + '/paeplay_python/data/planilha.json');
@@ -112,15 +119,20 @@ class GameStatus {
       except Exception{
         f = open(cwd + '/data/planilha.json');
       }
+      */
+     
       // retorna JSON como um dicionário:
-      this.anomalias_reparos = json.load(f);
+      // this.anomalias_reparos = json.load(f);
+      this.anomalias_reparos = leitura('./planilha.json')
+      
       // fecha o arquivo
-      f.close();
+      // f.close();
       // Abrindo lista de reparos
-      reparos = [];
+      // reparos = [];
+      /*
       with open(cwd + '/paeplay_python/paeplay_python/data/reparos.txt') as f:
-      lines = f.readlines();
-      reparos.append(lines);
+        lines = f.readlines();
+        reparos.append(lines);
       for (let i = 0; i < reparos.len; i++) {
         this.reparos[i] = reparos[i];
       }
@@ -134,13 +146,13 @@ class GameStatus {
         'w') as myfile:
       json.dump(this.legendas_paeweb, myfile);
       return;
-    }
-  */
+      */
   
+    }
+
     criar_tabuleiro() {
       var local_tab = {};
       this.lista_locais.forEach(function (key) {
-        console.log(key)
         local_tab[key] = {
           'pinos_brancos': 0,
           'pinos_pretos': 0,

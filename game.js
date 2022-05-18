@@ -1,10 +1,10 @@
 import { range, cartesianProduct } from './funcoes.js'
-import { mov_possible } from './movimentacao'
-import { GameStatus } from './movimentacao'
+import { mov_possible } from './movimentacao.js'
+import { GameStatus } from './game_status.js'
 
-
-status = GameStatus()
-movimentos = mov_possible()
+var gstatus = new GameStatus();
+const movimentos = mov_possible();
+gstatus.carrega_anomalias();
     
 let players = {
     1: 'Player1',
@@ -13,7 +13,7 @@ let players = {
     4: 'Player4',
     5: 'Player5'
   };
-  
+
 let n_players = 5;
 
 let cargos = {
@@ -28,3 +28,5 @@ const geometric = ['triangulo', 'circulo', 'quadrado'];
 const locais = range(1, 44);
 var initial_game_cards = cartesianProduct(geometric, locais);
 // const lista_locais = range(1, 44);
+
+
